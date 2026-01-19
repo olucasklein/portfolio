@@ -94,16 +94,58 @@ portfolio/
 ## 🎨 Design System
 
 ### Cores Principais
-- **Gradientes**: Indigo (#6366f1) → Cyan (#06b6d4) → Pink (#ec4899)
+- **Gradientes**: Indigo (#6366f1) → Violeta (#7c3aed) → Purple (#8b5cf6)
 - **Background**: Dark (#0a0a0a)
 - **Glass Effect**: backdrop-blur com baixa opacidade
 
+### Sistema de Temas com CSS Variables
+
+O projeto utiliza **CSS Custom Properties (Variables)** para controlar o tema de forma global e centralizada. Todas as cores e gradientes são definidos em `src/app/globals.css`, permitindo mudanças fáceis e consistentes em toda a aplicação.
+
+#### CSS Variables Disponíveis:
+```css
+/* Gradientes */
+--gradient-start: #6366f1;      /* Indigo */
+--gradient-middle: #7c3aed;     /* Violeta */
+--gradient-end: #8b5cf6;        /* Purple */
+
+/* Background Gradients */
+--bg-gradient: linear-gradient(to right, var(--gradient-start), var(--gradient-middle));
+--bg-gradient-br: linear-gradient(to bottom right, var(--gradient-start), var(--gradient-end));
+```
+
+#### Classes Tailwind para Temas:
+```tsx
+/* Aplicar gradiente horizontal */
+className="bg-theme-gradient"
+
+/* Aplicar gradiente diagonal (bottom-right) */
+className="bg-theme-gradient-br"
+
+/* Aplicar gradiente no texto */
+className="gradient-text"
+```
+
+#### Como Alterar o Tema Globalmente:
+Edite apenas as variáveis em `src/app/globals.css`:
+```css
+--gradient-start: #seu-color-1;
+--gradient-middle: #seu-color-2;
+--gradient-end: #seu-color-3;
+```
+
+Todos os componentes atualizarão automaticamente! ✨
+
 ### Animações Customizadas
-- `gradient` - Animação de fundo gradiente
+- `fade-in` - Entrada suave com opacidade
+- `fade-out` - Saída suave com opacidade
+- `slide-in-from-bottom` - Entrada desde baixo
+- `slide-out-to-bottom` - Saída para baixo
+- `shimmer` - Efeito de brilho em movimento
 - `float` - Efeito de flutuação suave
 - `pulse-glow` - Pulso brilhante
 - `slide-up` - Entrada de elementos
-- `marquee` - Scroll infinito de skills
+
 
 ## 👨‍💻 Sobre Mim
 

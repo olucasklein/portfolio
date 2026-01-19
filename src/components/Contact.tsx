@@ -90,14 +90,14 @@ export default function Contact() {
       {/* Background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
-        <div className="absolute bottom-1/2 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-1/2 right-0 w-96 h-96 bg-violet-500/10 rounded-full blur-[100px]" />
       </div>
 
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <span className="text-cyan-400 font-medium text-sm uppercase tracking-wider">
+            <span className="text-violet-400 font-medium text-sm uppercase tracking-wider">
               {t('contact.subtitle')}
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2 mb-4">
@@ -118,7 +118,7 @@ export default function Contact() {
               <div className="space-y-6 mb-8">
                 {contactInfo.map((info, index) => (
                   <div key={index} className="flex items-center gap-4">
-                    <div className="w-14 h-14 glass rounded-xl flex items-center justify-center text-indigo-400">
+                    <div className="w-14 h-14 glass rounded-xl flex items-center justify-center text-violet-400">
                       {info.icon}
                     </div>
                     <div>
@@ -128,7 +128,7 @@ export default function Contact() {
                           href={info.href}
                           target={info.href.startsWith('http') ? '_blank' : undefined}
                           rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                          className="text-white font-medium hover:text-indigo-400 transition-colors"
+                          className="text-white font-medium hover:text-violet-400 transition-colors"
                         >
                           {info.value}
                         </a>
@@ -210,7 +210,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-all text-white placeholder-gray-500"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-violet-500 focus:ring-1 focus:ring-violet-500 outline-none transition-all text-white placeholder-gray-500"
                       placeholder={t('contact.form.namePlaceholder')}
                     />
                   </div>
@@ -226,7 +226,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-all text-white placeholder-gray-500"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-violet-500 focus:ring-1 focus:ring-violet-500 outline-none transition-all text-white placeholder-gray-500"
                       placeholder={t('contact.form.emailPlaceholder')}
                     />
                   </div>
@@ -242,7 +242,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-all resize-none text-white placeholder-gray-500"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-violet-500 focus:ring-1 focus:ring-violet-500 outline-none transition-all resize-none text-white placeholder-gray-500"
                       placeholder={t('contact.form.messagePlaceholder')}
                     />
                   </div>
@@ -250,7 +250,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white font-medium rounded-xl hover:shadow-md hover:shadow-indigo-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 group relative overflow-hidden"
+                    className="w-full py-4 bg-theme-gradient text-white font-medium rounded-xl hover:shadow-md hover:shadow-indigo-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 group relative overflow-hidden"
                   >
                     {isSubmitting && (
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />

@@ -62,7 +62,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 via-cyan-400 to-pink-500 rounded-xl flex items-center justify-center">
+              <div className="w-10 h-10 bg-theme-gradient-br rounded-xl flex items-center justify-center">
                 <span className="text-white font-bold text-lg">LK</span>
               </div>
               <span className="text-xl font-semibold text-white">Lucas Klein</span>

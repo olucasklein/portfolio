@@ -69,7 +69,7 @@ export default function Experience() {
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 via-cyan-500 to-pink-500" />
+            <div className="absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 via-violet-500 to-purple-500" />
 
             {/* Timeline Items */}
             {experiences.map((exp, index) => (
@@ -80,7 +80,7 @@ export default function Experience() {
                 }`}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-indigo-500 to-cyan-500 border-4 border-[#0a0a0a]">
+                <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-theme-gradient-br border-4 border-[#0a0a0a]">
                   {exp.current && (
                     <div className="absolute inset-0 rounded-full bg-indigo-500 animate-ping" />
                   )}
@@ -100,7 +100,7 @@ export default function Experience() {
                         <span className="text-gray-500 text-sm">{exp.period}</span>
                       </div>
                       <h3 className="text-xl font-bold text-white">{exp.role}</h3>
-                      <p className="text-indigo-400 font-medium">{exp.company}</p>
+                      <p className="text-violet-400 font-medium">{exp.company}</p>
                       <span className="text-gray-500 text-sm flex items-center gap-1 mt-1">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />

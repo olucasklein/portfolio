@@ -20,7 +20,7 @@ export default function Hero() {
       {/* Animated Background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-indigo-500/20 rounded-full blur-[60px] sm:blur-[80px] md:blur-[100px] animate-pulse-glow" />
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-cyan-500/20 rounded-full blur-[60px] sm:blur-[80px] md:blur-[100px] animate-pulse-glow delay-300" />
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-violet-500/20 rounded-full blur-[60px] sm:blur-[80px] md:blur-[100px] animate-pulse-glow delay-300" />
         <div className="absolute top-1/2 left-1/2 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-pink-500/20 rounded-full blur-[40px] sm:blur-[60px] md:blur-[80px] animate-pulse-glow delay-500" />
         
         {/* Grid Pattern */}
@@ -56,12 +56,12 @@ export default function Hero() {
             </p>
 
             <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-5 md:mb-8 leading-relaxed max-w-xl">
-              {t('hero.description')} <span className="text-white font-semibold">{t('hero.experience')}</span> {t('hero.descriptionContinue')} <span className="text-cyan-400">UX/UI</span> {t('hero.descriptionEnd')}
+              {t('hero.description')} <span className="text-white font-semibold">{t('hero.experience')}</span> {t('hero.descriptionContinue')} <span className="text-violet-400">UX/UI</span> {t('hero.descriptionEnd')}
             </p>
 
             {/* Mobile Profile Image */}
             <div className="flex lg:hidden justify-center mb-5 md:mb-8">
-              <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full p-1 bg-gradient-to-br from-indigo-500 via-cyan-400 to-pink-500 shadow-2xl">
+              <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full p-1 bg-theme-gradient-br shadow-2xl">
                 <div className="w-full h-full rounded-full overflow-hidden">
                   <Image
                     src="/perfil.jpg"
@@ -77,7 +77,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 mb-5 md:mb-8">
               <a
                 href="#projetos"
-                className="px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white font-medium text-sm md:text-base rounded-xl hover:opacity-90 transition-all text-center flex items-center justify-center gap-2 group"
+                className="px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-theme-gradient text-white font-medium text-sm md:text-base rounded-xl hover:opacity-90 transition-all text-center flex items-center justify-center gap-2 group"
               >
                 {t('hero.viewProjects')}
                 <svg 
@@ -91,9 +91,11 @@ export default function Hero() {
               </a>
               <a
                 href="#contato"
-                className="px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 glass text-white font-medium text-sm md:text-base rounded-xl hover:bg-white/10 transition-all text-center"
+                className="px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 glass text-white font-medium text-sm md:text-base rounded-xl hover:bg-white/10 hover:border-white/30 hover:shadow-lg hover:shadow-violet-500/20 active:scale-95 transition-all text-center border border-white/10 group"
               >
-                {t('hero.contactMe')}
+                <span className="inline-block group-hover:scale-102 transition-transform">
+                  {t('hero.contactMe')}
+                </span>
               </a>
             </div>
 
@@ -156,7 +158,7 @@ export default function Hero() {
             <div className="relative">
               {/* Profile Image */}
               <div className="absolute -top-24 left-1/2 -translate-x-1/2 z-20">
-                <div className="w-44 h-44 rounded-full p-1 bg-gradient-to-br from-indigo-500 via-cyan-400 to-pink-500 shadow-2xl">
+                <div className="w-44 h-44 rounded-full p-1 bg-theme-gradient-br shadow-2xl">
                   <div className="w-full h-full rounded-full overflow-hidden">
                     <Image
                       src="/perfil.jpg"
@@ -179,7 +181,7 @@ export default function Hero() {
                 </div>
                 
                 <div className="mt-10 font-mono text-sm space-y-2">
-                  <p><span className="text-pink-400">const</span> <span className="text-cyan-400">developer</span> <span className="text-white">=</span> <span className="text-yellow-400">{`{`}</span></p>
+                  <p><span className="text-pink-400">const</span> <span className="text-violet-400">developer</span> <span className="text-white">=</span> <span className="text-yellow-400">{`{`}</span></p>
                   <p className="pl-4"><span className="text-indigo-400">name</span>: <span className="text-emerald-400">&quot;Lucas Klein&quot;</span>,</p>
                   <p className="pl-4"><span className="text-indigo-400">role</span>: <span className="text-emerald-400">&quot;Front-End Dev&quot;</span>,</p>
                   <p className="pl-4"><span className="text-indigo-400">location</span>: <span className="text-emerald-400">&quot;Rio de Janeiro&quot;</span>,</p>
@@ -198,19 +200,19 @@ export default function Hero() {
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center animate-float shadow-lg">
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-theme-gradient-br rounded-2xl flex items-center justify-center animate-float shadow-lg">
                 <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/>
                 </svg>
               </div>
 
-              <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center animate-float shadow-lg" style={{ animationDelay: '1s' }}>
+              <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-br from-violet-600 to-purple-700 rounded-2xl flex items-center justify-center animate-float shadow-lg" style={{ animationDelay: '1s' }}>
                 <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M0 12v12h24v-24h-24v12zm1 0v-11h22v22h-22v-11zm8.934 3.765l-2.458 2.235h9.048l-2.458-2.235c.164-.173.3-.367.41-.581.218-.424.346-.906.346-1.42 0-1.819-1.456-3.292-3.25-3.292s-3.25 1.474-3.25 3.293c0 .514.128.995.346 1.419.11.214.246.408.41.581l-.144-.001zm2.566-5.013c1.794 0 3.25 1.474 3.25 3.293 0 .514-.128.996-.346 1.42-.11.214-.246.408-.41.581l2.458 2.235h-9.048l2.458-2.235c-.164-.173-.3-.367-.41-.581-.218-.424-.346-.906-.346-1.42 0-1.819 1.456-3.293 3.25-3.293z"/>
                 </svg>
               </div>
 
-              <div className="absolute top-1/2 -right-10 w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center animate-float shadow-lg" style={{ animationDelay: '2s' }}>
+              <div className="absolute top-1/2 -right-10 w-14 h-14 bg-gradient-to-br from-indigo-600 to-violet-700 rounded-xl flex items-center justify-center animate-float shadow-lg" style={{ animationDelay: '2s' }}>
                 <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/>
                 </svg>

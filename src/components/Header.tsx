@@ -53,7 +53,7 @@ export default function Header() {
             className="flex items-center gap-3 group cursor-pointer"
             aria-label="Voltar ao topo"
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 via-cyan-400 to-pink-500 rounded-xl flex items-center justify-center transform group-hover:scale-110 transition-transform">
+            <div className="w-10 h-10 bg-theme-gradient-br rounded-xl flex items-center justify-center transform group-hover:scale-110 transition-transform">
               <span className="text-white font-bold text-lg">LK</span>
             </div>
             <span className="text-xl font-semibold text-white hidden sm:block">
@@ -80,24 +80,24 @@ export default function Header() {
             {/* Language Toggle */}
             <button
               onClick={() => setLanguage(language === 'pt' ? 'en' : 'pt')}
-              className="relative flex items-center gap-1 p-1 glass rounded-full text-xs font-semibold transition-all hover:bg-white/5"
+              className="relative flex items-center gap-1 p-1 glass rounded-full text-xs font-semibold transition-all"
               aria-label="Toggle language"
             >
               {/* Background Slider */}
               <div 
-                className={`absolute top-1 h-[calc(100%-8px)] w-[calc(50%-4px)] bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full transition-all duration-300 ease-out ${
+                className={`absolute top-1 h-[calc(100%-8px)] w-[calc(50%-4px)] bg-theme-gradient rounded-full transition-all duration-300 ease-out ${
                   language === 'pt' ? 'left-1' : 'left-[calc(50%+2px)]'
                 }`}
               />
               {/* PT Button */}
-              <span className={`relative z-10 px-2.5 xl:px-3 py-1.5 rounded-full transition-colors duration-300 flex items-center gap-1.5 ${
+              <span className={`relative z-10 px-2.5 xl:px-3 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:bg-white/10 ${
                 language === 'pt' ? 'text-white' : 'text-gray-400'
               }`}>
                 <BR className="w-4 h-3" />
                 PT
               </span>
               {/* EN Button */}
-              <span className={`relative z-10 px-2.5 xl:px-3 py-1.5 rounded-full transition-colors duration-300 flex items-center gap-1.5 ${
+              <span className={`relative z-10 px-2.5 xl:px-3 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:bg-white/10 ${
                 language === 'en' ? 'text-white' : 'text-gray-400'
               }`}>
                 <US className="w-4 h-3" />
@@ -121,7 +121,7 @@ export default function Header() {
             {/* CTA Button */}
             <a
               href="#contato"
-              className="px-4 xl:px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white text-sm font-medium rounded-lg hover:opacity-90 transition-opacity"
+              className="px-4 xl:px-5 py-2.5 bg-theme-gradient text-white text-sm font-medium rounded-lg hover:opacity-90 transition-opacity"
             >
               {t('nav.contact')}
             </a>
@@ -221,7 +221,7 @@ export default function Header() {
                   className="relative flex items-center p-1 bg-white/5 border border-white/10 rounded-full text-xs font-medium"
                 >
                   <div 
-                    className={`absolute top-1 h-[calc(100%-8px)] w-[calc(50%-4px)] bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full transition-all duration-300 ease-out ${
+                    className={`absolute top-1 h-[calc(100%-8px)] w-[calc(50%-4px)] bg-theme-gradient rounded-full transition-all duration-300 ease-out ${
                       language === 'pt' ? 'left-1' : 'left-[calc(50%+2px)]'
                     }`}
                   />
@@ -256,7 +256,7 @@ export default function Header() {
               <a
                 href="#contato"
                 onClick={() => setIsMenuOpen(false)}
-                className="flex items-center justify-center w-full py-3 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white text-sm font-medium rounded-lg hover:opacity-90 transition-opacity"
+                className="flex items-center justify-center w-full py-3 bg-theme-gradient text-white text-sm font-medium rounded-lg hover:opacity-90 transition-opacity"
               >
                 {t('nav.contact')}
               </a>

@@ -3,16 +3,38 @@
 :root {
   --background: #0a0a0a;
   --foreground: #ededed;
+  
+  /* Cores principais - altere aqui para mudar o tema inteiro */
   --primary: #6366f1;
-  --primary-light: #818cf8;
-  --secondary: #22d3ee;
-  --accent: #f472b6;
+  --primary-dark: #4f46e5;
+  --secondary: #7c3aed;
+  --secondary-dark: #6d28d9;
+  --accent: #8b5cf6;
+  
+  /* Gradientes - altere aqui para mudar todos os gradientes */
+  --gradient-start: #6366f1;
+  --gradient-middle: #7c3aed;
+  --gradient-end: #8b5cf6;
+  
+  /* Cores de texto gradient */
+  --text-gradient: linear-gradient(135deg, var(--gradient-start), var(--gradient-middle), var(--gradient-end));
+  
+  /* Gradiente para botões e elementos */
+  --bg-gradient: linear-gradient(to right, var(--gradient-start), var(--gradient-middle));
+  --bg-gradient-br: linear-gradient(to bottom right, var(--gradient-start), var(--gradient-middle), var(--gradient-end));
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
+  
+  /* Cores customizadas do Tailwind */
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-secondary: var(--secondary);
+  --color-secondary-dark: var(--secondary-dark);
+  --color-accent: var(--accent);
 }
 
 html {
@@ -155,34 +177,33 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Gradient text */
+/* Gradient text - usa variáveis */
 .gradient-text {
-  background: linear-gradient(135deg, #6366f1, #22d3ee, #f472b6);
+  background: var(--text-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Glow effects */
+/* Gradiente para backgrounds */
+.bg-theme-gradient {
+  background: var(--bg-gradient);
+}
+
+.bg-theme-gradient-br {
+  background: var(--bg-gradient-br);
+}
+
+/* Glow effects - usa variáveis */
 .glow-primary {
   box-shadow: 0 0 40px rgba(99, 102, 241, 0.3);
 }
 
 .glow-secondary {
-  box-shadow: 0 0 40px rgba(34, 211, 238, 0.3);
+  box-shadow: 0 0 40px rgba(124, 58, 237, 0.3);
 }
 
-/* Card hover effect */
-.card-hover {
-  transition: all 0.3s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* Link underline effect */
+/* Link underline effect - usa variáveis */
 .link-underline {
   position: relative;
 }
@@ -194,12 +215,22 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #6366f1, #22d3ee);
+  background: var(--bg-gradient);
   transition: width 0.3s ease;
 }
 
 .link-underline:hover::after {
   width: 100%;
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* Marquee animation */
@@ -232,6 +263,26 @@ body {
   }
 }
 
+@keyframes slide-out-to-bottom {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 @keyframes shimmer {
   0% {
     transform: translateX(-100%);
@@ -245,8 +296,16 @@ body {
   animation: fade-in 0.3s ease-out forwards;
 }
 
+.animate-fade-out {
+  animation: fade-out 0.3s ease-out forwards;
+}
+
 .animate-slide-in-bottom {
   animation: slide-in-from-bottom 0.3s ease-out forwards;
+}
+
+.animate-slide-out-bottom {
+  animation: slide-out-to-bottom 0.3s ease-out forwards;
 }
 
 .animate-shimmer {

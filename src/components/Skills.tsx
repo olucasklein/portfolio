@@ -74,13 +74,13 @@ export default function Skills() {
       {/* Background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/3 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-[100px]" />
-        <div className="absolute bottom-1/3 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-1/3 left-0 w-96 h-96 bg-violet-500/10 rounded-full blur-[100px]" />
       </div>
 
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-cyan-400 font-medium text-sm uppercase tracking-wider">
+          <span className="text-violet-400 font-medium text-sm uppercase tracking-wider">
             {t('skills.subtitle')}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2 mb-4">
@@ -99,7 +99,7 @@ export default function Skills() {
               className="glass rounded-2xl p-6 card-hover"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-cyan-500 rounded-xl flex items-center justify-center text-white">
+                <div className="w-12 h-12 bg-theme-gradient-br rounded-xl flex items-center justify-center text-white">
                   {skillGroup.icon}
                 </div>
                 <div className="flex items-center gap-2">
@@ -121,7 +121,7 @@ export default function Skills() {
                     </div>
                     <div className="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full transition-all duration-1000"
+                        className="h-full bg-theme-gradient rounded-full transition-all duration-1000"
                         style={{ width: `${skill.level}%` }}
                       />
                     </div>
