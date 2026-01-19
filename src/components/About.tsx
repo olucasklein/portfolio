@@ -1,4 +1,10 @@
+'use client';
+
+import { useLanguage } from '@/contexts/LanguageContext';
+
 export default function About() {
+  const { t, language } = useLanguage();
+
   return (
     <section id="sobre" className="py-24 relative">
       {/* Background decoration */}
@@ -16,19 +22,19 @@ export default function About() {
                 <div className="grid grid-cols-2 gap-6 mb-8">
                   <div className="text-center p-4 bg-white/5 rounded-xl">
                     <div className="text-4xl font-bold gradient-text">4+</div>
-                    <div className="text-gray-400 text-sm mt-1">Anos de Experiência</div>
+                    <div className="text-gray-400 text-sm mt-1">{t('about.stats.experience')}</div>
                   </div>
                   <div className="text-center p-4 bg-white/5 rounded-xl">
                     <div className="text-4xl font-bold gradient-text">20+</div>
-                    <div className="text-gray-400 text-sm mt-1">Projetos Entregues</div>
+                    <div className="text-gray-400 text-sm mt-1">{t('about.stats.projects')}</div>
                   </div>
                   <div className="text-center p-4 bg-white/5 rounded-xl">
                     <div className="text-4xl font-bold gradient-text">10+</div>
-                    <div className="text-gray-400 text-sm mt-1">Tecnologias</div>
+                    <div className="text-gray-400 text-sm mt-1">{t('about.stats.technologies')}</div>
                   </div>
                   <div className="text-center p-4 bg-white/5 rounded-xl">
                     <div className="text-4xl font-bold gradient-text">∞</div>
-                    <div className="text-gray-400 text-sm mt-1">Aprendizado Contínuo</div>
+                    <div className="text-gray-400 text-sm mt-1">{language === 'pt' ? 'Aprendizado Contínuo' : 'Continuous Learning'}</div>
                   </div>
                 </div>
 
@@ -43,12 +49,12 @@ export default function About() {
                       </svg>
                     </div>
                     <div>
-                      <div className="font-semibold text-white">Formação</div>
-                      <div className="text-gray-400 text-sm">Sistemas de Informação</div>
+                      <div className="font-semibold text-white">{t('about.education')}</div>
+                      <div className="text-gray-400 text-sm">{t('about.degree')}</div>
                     </div>
                   </div>
                   <p className="text-gray-400 text-sm">
-                    Graduado em Sistemas de Informação, atualmente estudando UX/UI para ampliar conhecimentos em design de experiência do usuário.
+                    {t('about.studying')}
                   </p>
                 </div>
               </div>
@@ -62,29 +68,26 @@ export default function About() {
           {/* Content */}
           <div>
             <span className="text-indigo-400 font-medium text-sm uppercase tracking-wider">
-              Sobre Mim
+              {t('about.subtitle')}
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2 mb-6">
-              Transformando ideias em{' '}
-              <span className="gradient-text">experiências digitais</span>
+              {language === 'pt' ? 'Transformando ideias em' : 'Transforming ideas into'}{' '}
+              <span className="gradient-text">{language === 'pt' ? 'experiências digitais' : 'digital experiences'}</span>
             </h2>
             
             <div className="space-y-4 text-gray-400 text-lg leading-relaxed">
               <p>
-                Sou um <span className="text-white font-medium">Desenvolvedor Front-End</span> apaixonado por criar interfaces bonitas e funcionais. Com mais de 4 anos de experiência, tenho trabalhado com diversas tecnologias e frameworks modernos.
+                {t('about.description1')}
               </p>
               <p>
-                Atualmente trabalho na <span className="text-cyan-400 font-medium">Tuna Pagamentos</span> em Rio de Janeiro, onde desenvolvo soluções escaláveis e interfaces intuitivas para milhares de usuários.
-              </p>
-              <p>
-                Minha jornada no desenvolvimento web começou pela curiosidade de entender como as coisas funcionam por trás das telas. Desde então, descobri na programação uma carreira cheia de desafios e oportunidades de crescimento contínuo.
+                {t('about.description2')}
               </p>
             </div>
 
             {/* Highlights */}
             <div className="mt-8 grid sm:grid-cols-2 gap-4">
               {[
-                { icon: '🎯', text: 'Foco em Clean Code' },
+                { icon: '🎯', text: 'Clean Code' },
                 { icon: '🚀', text: 'Performance First' },
                 { icon: '📱', text: 'Mobile Responsive' },
                 { icon: '✨', text: 'Pixel Perfect' },
@@ -101,14 +104,14 @@ export default function About() {
 
             <div className="mt-8">
               <a
-                href="/cv-lucas-klein.pdf"
+                href="/resume.pdf"
                 download
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white font-medium rounded-xl hover:opacity-90 transition-all"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                Download CV
+                {t('nav.downloadCV')}
               </a>
             </div>
           </div>

@@ -1,34 +1,40 @@
-const experiences = [
-  {
-    company: 'Tuna Pagamentos',
-    role: 'Desenvolvedor Front-End Junior',
-    period: 'Ago 2024 - Atual',
-    location: 'Rio de Janeiro, Brasil',
-    description: 'Desenvolvimento de interfaces modernas e escaláveis para plataforma de pagamentos. Trabalho com React, TypeScript e integração com APIs REST.',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'REST APIs'],
-    current: true,
-  },
-  {
-    company: 'Projetos Freelance',
-    role: 'Desenvolvedor Front-End',
-    period: '2020 - Atual',
-    location: 'Remoto',
-    description: 'Desenvolvimento de sites institucionais, landing pages e aplicações web para diversos clientes. Foco em responsividade e experiência do usuário.',
-    technologies: ['React', 'Next.js', 'Angular', 'Node.js'],
-    current: false,
-  },
-  {
-    company: 'VTEX - Gama Academy',
-    role: 'Desenvolvedor (Hiring Coders)',
-    period: '2021',
-    location: 'Remoto',
-    description: 'Participação no programa Hiring Coders, desenvolvendo projetos práticos de e-commerce, APIs e aplicações full-stack.',
-    technologies: ['JavaScript', 'HTML/CSS', 'Node.js', 'APIs'],
-    current: false,
-  },
-];
+'use client';
+
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Experience() {
+  const { t } = useLanguage();
+
+  const experiences = [
+    {
+      company: 'Tuna Pagamentos',
+      role: t('experience.tuna.role'),
+      period: `Ago 2024 - ${t('experience.current')}`,
+      location: 'Rio de Janeiro, Brasil',
+      description: t('experience.tuna.description'),
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'REST APIs'],
+      current: true,
+    },
+    {
+      company: 'Projetos Freelance',
+      role: t('experience.freelance.role'),
+      period: `2020 - ${t('experience.current')}`,
+      location: 'Remoto',
+      description: t('experience.freelance.description'),
+      technologies: ['React', 'Next.js', 'Angular', 'Node.js'],
+      current: false,
+    },
+    {
+      company: 'VTEX - Gama Academy',
+      role: t('experience.vtex.role'),
+      period: '2021',
+      location: 'Remoto',
+      description: t('experience.vtex.description'),
+      technologies: ['JavaScript', 'HTML/CSS', 'Node.js', 'APIs'],
+      current: false,
+    },
+  ];
+
   return (
     <section id="experiencia" className="py-24 relative">
       {/* Background */}
@@ -40,13 +46,13 @@ export default function Experience() {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-pink-400 font-medium text-sm uppercase tracking-wider">
-            Trajetória
+            {t('experience.subtitle')}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2 mb-4">
-            Minha <span className="gradient-text">Experiência</span>
+            {t('experience.title')} <span className="gradient-text">{t('experience.titleHighlight')}</span>
           </h2>
           <p className="text-gray-400 text-lg">
-            Uma jornada de aprendizado contínuo e evolução profissional no mundo do desenvolvimento web.
+            {t('experience.description')}
           </p>
         </div>
 
@@ -80,7 +86,7 @@ export default function Experience() {
                         <div className="flex items-center gap-2 mb-1">
                           {exp.current && (
                             <span className="px-2 py-0.5 bg-emerald-500/20 text-emerald-400 text-xs rounded-full">
-                              Atual
+                              {t('experience.current')}
                             </span>
                           )}
                           <span className="text-gray-500 text-sm">{exp.period}</span>

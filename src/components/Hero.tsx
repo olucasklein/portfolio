@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setIsVisible(true);
@@ -16,22 +18,22 @@ export default function Hero() {
       className="min-h-screen flex items-center relative overflow-hidden"
     >
       {/* Animated Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-[100px] animate-pulse-glow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-[100px] animate-pulse-glow delay-300" />
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-500/20 rounded-full blur-[80px] animate-pulse-glow delay-500" />
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-indigo-500/20 rounded-full blur-[60px] sm:blur-[80px] md:blur-[100px] animate-pulse-glow" />
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-cyan-500/20 rounded-full blur-[60px] sm:blur-[80px] md:blur-[100px] animate-pulse-glow delay-300" />
+        <div className="absolute top-1/2 left-1/2 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-pink-500/20 rounded-full blur-[40px] sm:blur-[60px] md:blur-[80px] animate-pulse-glow delay-500" />
         
         {/* Grid Pattern */}
         <div 
           className="absolute inset-0 opacity-20"
           style={{
             backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px'
+            backgroundSize: '30px 30px'
           }}
         />
       </div>
 
-      <div className="container mx-auto px-6 py-20 pt-32">
+      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 pt-20 sm:pt-24 md:pt-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div 
@@ -39,30 +41,45 @@ export default function Hero() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 glass rounded-full text-xs md:text-sm font-medium mb-4 md:mb-6">
               <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-              Disponível para novos projetos
+              {t('hero.available')}
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
-              Olá, eu sou{' '}
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 md:mb-6 leading-tight">
+              {t('hero.greeting')}{' '}
               <span className="gradient-text">Lucas Klein</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-400 mb-4">
-              Desenvolvedor Front-End
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-2 md:mb-4">
+              {t('hero.role')}
             </p>
 
-            <p className="text-gray-400 mb-8 text-lg leading-relaxed max-w-xl">
-              Com mais de <span className="text-white font-semibold">4 anos de experiência</span> criando interfaces limpas, escaláveis e de alta qualidade. Atualmente estudando <span className="text-cyan-400">UX/UI</span> para entregar experiências digitais ainda melhores.
+            <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-5 md:mb-8 leading-relaxed max-w-xl">
+              {t('hero.description')} <span className="text-white font-semibold">{t('hero.experience')}</span> {t('hero.descriptionContinue')} <span className="text-cyan-400">UX/UI</span> {t('hero.descriptionEnd')}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            {/* Mobile Profile Image */}
+            <div className="flex lg:hidden justify-center mb-5 md:mb-8">
+              <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full p-1 bg-gradient-to-br from-indigo-500 via-cyan-400 to-pink-500 shadow-2xl">
+                <div className="w-full h-full rounded-full overflow-hidden">
+                  <Image
+                    src="/perfil.jpg"
+                    alt="Lucas Klein"
+                    width={160}
+                    height={160}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 mb-5 md:mb-8">
               <a
                 href="#projetos"
-                className="px-8 py-4 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white font-medium rounded-xl hover:opacity-90 transition-all text-center flex items-center justify-center gap-2 group"
+                className="px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white font-medium text-sm md:text-base rounded-xl hover:opacity-90 transition-all text-center flex items-center justify-center gap-2 group"
               >
-                Ver Projetos
+                {t('hero.viewProjects')}
                 <svg 
                   className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" 
                   fill="none" 
@@ -74,21 +91,21 @@ export default function Hero() {
               </a>
               <a
                 href="#contato"
-                className="px-8 py-4 glass text-white font-medium rounded-xl hover:bg-white/10 transition-all text-center"
+                className="px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 glass text-white font-medium text-sm md:text-base rounded-xl hover:bg-white/10 transition-all text-center"
               >
-                Entre em Contato
+                {t('hero.contactMe')}
               </a>
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-4">
-              <span className="text-gray-500 text-sm">Me encontre em</span>
-              <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+              <span className="text-gray-500 text-xs">{t('hero.findMe')}</span>
+              <div className="flex gap-2">
                 <a
                   href="https://github.com/olucasklein"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 glass rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                  className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 glass rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
                   aria-label="GitHub"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -99,7 +116,7 @@ export default function Hero() {
                   href="https://www.linkedin.com/in/olucasklein/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 glass rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                  className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 glass rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
                   aria-label="LinkedIn"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -108,7 +125,7 @@ export default function Hero() {
                 </a>
                 <a
                   href="mailto:olucasklein@hotmail.com"
-                  className="w-10 h-10 glass rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                  className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 glass rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
                   aria-label="Email"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -119,7 +136,7 @@ export default function Hero() {
                   href="https://wa.me/5522999165664"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 glass rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                  className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 glass rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
                   aria-label="WhatsApp"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -202,9 +219,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="text-gray-500 text-sm">Scroll</span>
+        {/* Scroll Indicator - Hidden on mobile */}
+        <div className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2">
+          <span className="text-gray-500 text-sm">{t('hero.scroll')}</span>
           <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center pt-2">
             <div className="w-1 h-2 bg-gray-400 rounded-full animate-bounce" />
           </div>

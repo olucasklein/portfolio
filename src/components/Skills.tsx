@@ -1,65 +1,74 @@
-const skills = [
-  {
-    category: 'Front-End',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-      </svg>
-    ),
-    items: [
-      { name: 'React', level: 95 },
-      { name: 'Next.js', level: 90 },
-      { name: 'Angular', level: 85 },
-      { name: 'TypeScript', level: 90 },
-      { name: 'JavaScript', level: 95 },
-    ],
-  },
-  {
-    category: 'Estilização',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-      </svg>
-    ),
-    items: [
-      { name: 'Tailwind CSS', level: 95 },
-      { name: 'CSS3 / SASS', level: 90 },
-      { name: 'Styled Components', level: 85 },
-      { name: 'Material UI', level: 80 },
-      { name: 'Figma', level: 75 },
-    ],
-  },
-  {
-    category: 'Back-End & Tools',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-      </svg>
-    ),
-    items: [
-      { name: 'Node.js', level: 75 },
-      { name: 'Git / GitHub', level: 90 },
-      { name: 'REST APIs', level: 85 },
-      { name: 'Firebase', level: 70 },
-      { name: 'Docker', level: 65 },
-    ],
-  },
-];
+'use client';
 
-const technologies = [
-  { name: 'HTML5', icon: '🌐' },
-  { name: 'CSS3', icon: '🎨' },
-  { name: 'JavaScript', icon: '⚡' },
-  { name: 'TypeScript', icon: '📘' },
-  { name: 'React', icon: '⚛️' },
-  { name: 'Next.js', icon: '▲' },
-  { name: 'Angular', icon: '🅰️' },
-  { name: 'Tailwind', icon: '💨' },
-  { name: 'Node.js', icon: '💚' },
-  { name: 'Git', icon: '📦' },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Skills() {
+  const { t } = useLanguage();
+
+  const skills = [
+    {
+      category: t('skills.frontend'),
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      ),
+      items: [
+        { name: 'React', level: 95 },
+        { name: 'Next.js', level: 90 },
+        { name: 'Angular', level: 85 },
+        { name: 'TypeScript', level: 90 },
+        { name: 'JavaScript', level: 95 },
+      ],
+      learning: false,
+    },
+    {
+      category: t('skills.styling'),
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+        </svg>
+      ),
+      items: [
+        { name: 'Tailwind CSS', level: 95 },
+        { name: 'CSS3 / SASS', level: 90 },
+        { name: 'Styled Components', level: 85 },
+        { name: 'Material UI', level: 80 },
+        { name: 'Figma', level: 75 },
+      ],
+      learning: false,
+    },
+    {
+      category: t('skills.backend'),
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+        </svg>
+      ),
+      items: [
+        { name: 'Node.js', level: 75 },
+        { name: 'Git / GitHub', level: 90 },
+        { name: 'REST APIs', level: 85 },
+        { name: 'Firebase', level: 70 },
+        { name: 'Docker', level: 65 },
+      ],
+      learning: true,
+    },
+  ];
+
+  const technologies = [
+    { name: 'HTML5', icon: '🌐' },
+    { name: 'CSS3', icon: '🎨' },
+    { name: 'JavaScript', icon: '⚡' },
+    { name: 'TypeScript', icon: '📘' },
+    { name: 'React', icon: '⚛️' },
+    { name: 'Next.js', icon: '▲' },
+    { name: 'Angular', icon: '🅰️' },
+    { name: 'Tailwind', icon: '💨' },
+    { name: 'Node.js', icon: '💚' },
+    { name: 'Git', icon: '📦' },
+  ];
+
   return (
     <section id="skills" className="py-24 relative">
       {/* Background */}
@@ -72,13 +81,13 @@ export default function Skills() {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-cyan-400 font-medium text-sm uppercase tracking-wider">
-            Habilidades
+            {t('skills.subtitle')}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2 mb-4">
-            Minhas <span className="gradient-text">Skills</span> e Tecnologias
+            {t('skills.title')} <span className="gradient-text">{t('skills.titleHighlight')}</span> {t('skills.titleEnd')}
           </h2>
           <p className="text-gray-400 text-lg">
-            Tecnologias e ferramentas que utilizo no dia a dia para criar experiências digitais incríveis.
+            {t('skills.description')}
           </p>
         </div>
 
@@ -93,7 +102,14 @@ export default function Skills() {
                 <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-cyan-500 rounded-xl flex items-center justify-center text-white">
                   {skillGroup.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-white">{skillGroup.category}</h3>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-xl font-semibold text-white">{skillGroup.category}</h3>
+                  {skillGroup.learning && (
+                    <span className="px-2 py-0.5 bg-amber-500/20 text-amber-400 text-xs rounded-full">
+                      {t('skills.learning')}
+                    </span>
+                  )}
+                </div>
               </div>
 
               <div className="space-y-4">

@@ -1,61 +1,75 @@
-const projects = [
-  {
-    title: 'TechScore',
-    description: 'Aplicativo de placar profissional para tênis desenvolvido com React Native e Expo. Inclui modo singles/doubles, histórico de partidas, estatísticas e cronômetro.',
-    image: '/projects/techscore.jpg',
-    technologies: ['React Native', 'Expo', 'TypeScript', 'AsyncStorage'],
-    github: 'https://github.com/olucasklein/tech-score',
-    demo: null,
-    featured: true,
-  },
-  {
-    title: 'Seu Site - Whitelabel',
-    description: 'Site institucional whitelabel moderno desenvolvido com Next.js. Estrutura flexível para ser adaptada a diferentes marcas e clientes.',
-    image: '/projects/seu-site.jpg',
-    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
-    github: 'https://github.com/olucasklein/seu-site',
-    demo: 'https://seu-site-beta.vercel.app',
-    featured: true,
-  },
-  {
-    title: 'E-commerce Apple Fun',
-    description: 'Sistema de E-commerce desenvolvido durante o Hiring Coders, com gestão de clientes, endereços e produtos estruturados.',
-    image: '/projects/apple-fun.jpg',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'LocalStorage'],
-    github: 'https://github.com/olucasklein/gama-apple-fun',
-    demo: null,
-    featured: false,
-  },
-  {
-    title: 'Black Friday Landing Page',
-    description: 'Landing page responsiva estilo Black Friday desenvolvida durante o Hiring Coders com captura de dados no LocalStorage.',
-    image: '/projects/blackfriday.jpg',
-    technologies: ['HTML', 'CSS', 'JavaScript'],
-    github: 'https://github.com/olucasklein/gama-blackfriday-relampago',
-    demo: null,
-    featured: false,
-  },
-  {
-    title: 'To-Do List Angular',
-    description: 'Aplicação de lista de tarefas desenvolvida em Angular com recursos de adicionar, editar e remover tarefas.',
-    image: '/projects/todolist.jpg',
-    technologies: ['Angular', 'TypeScript', 'SCSS'],
-    github: 'https://github.com/olucasklein/todolist-angular',
-    demo: null,
-    featured: false,
-  },
-  {
-    title: 'To-Do List JavaScript',
-    description: 'To-Do List básica em JavaScript puro desenvolvida durante o Hiring Coders da VTEX com Gama Academy.',
-    image: '/projects/todolist-js.jpg',
-    technologies: ['HTML', 'CSS', 'JavaScript'],
-    github: 'https://github.com/olucasklein/gama-todolist',
-    demo: null,
-    featured: false,
-  },
-];
+'use client';
+
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Projects() {
+  const { t, language } = useLanguage();
+
+  const projects = [
+    {
+      title: 'TechScore',
+      description: t('projects.techscore.description'),
+      image: '/projects/techscore.jpg',
+      technologies: ['React Native', 'Expo', 'TypeScript', 'AsyncStorage'],
+      github: 'https://github.com/olucasklein/tech-score',
+      demo: null,
+      featured: true,
+    },
+    {
+      title: 'Seu Site - Whitelabel',
+      description: t('projects.seusite.description'),
+      image: '/projects/seu-site.jpg',
+      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+      github: 'https://github.com/olucasklein/seu-site',
+      demo: 'https://seu-site-beta.vercel.app',
+      featured: true,
+    },
+    {
+      title: 'E-commerce Apple Fun',
+      description: language === 'pt' 
+        ? 'Sistema de E-commerce desenvolvido durante o Hiring Coders, com gestão de clientes, endereços e produtos estruturados.'
+        : 'E-commerce system developed during Hiring Coders, with customer management, addresses, and structured products.',
+      image: '/projects/apple-fun.jpg',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'LocalStorage'],
+      github: 'https://github.com/olucasklein/gama-apple-fun',
+      demo: null,
+      featured: false,
+    },
+    {
+      title: 'Black Friday Landing Page',
+      description: language === 'pt'
+        ? 'Landing page responsiva estilo Black Friday desenvolvida durante o Hiring Coders com captura de dados no LocalStorage.'
+        : 'Responsive Black Friday-style landing page developed during Hiring Coders with data capture in LocalStorage.',
+      image: '/projects/blackfriday.jpg',
+      technologies: ['HTML', 'CSS', 'JavaScript'],
+      github: 'https://github.com/olucasklein/gama-blackfriday-relampago',
+      demo: null,
+      featured: false,
+    },
+    {
+      title: 'To-Do List Angular',
+      description: language === 'pt'
+        ? 'Aplicação de lista de tarefas desenvolvida em Angular com recursos de adicionar, editar e remover tarefas.'
+        : 'Task list application developed in Angular with features to add, edit, and remove tasks.',
+      image: '/projects/todolist.jpg',
+      technologies: ['Angular', 'TypeScript', 'SCSS'],
+      github: 'https://github.com/olucasklein/todolist-angular',
+      demo: null,
+      featured: false,
+    },
+    {
+      title: 'To-Do List JavaScript',
+      description: language === 'pt'
+        ? 'To-Do List básica em JavaScript puro desenvolvida durante o Hiring Coders da VTEX com Gama Academy.'
+        : 'Basic To-Do List in pure JavaScript developed during VTEX Hiring Coders with Gama Academy.',
+      image: '/projects/todolist-js.jpg',
+      technologies: ['HTML', 'CSS', 'JavaScript'],
+      github: 'https://github.com/olucasklein/gama-todolist',
+      demo: null,
+      featured: false,
+    },
+  ];
+
   const featuredProjects = projects.filter((p) => p.featured);
   const otherProjects = projects.filter((p) => !p.featured);
 
@@ -71,13 +85,13 @@ export default function Projects() {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-emerald-400 font-medium text-sm uppercase tracking-wider">
-            Portfólio
+            {t('projects.subtitle')}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2 mb-4">
-            Meus <span className="gradient-text">Projetos</span>
+            {t('projects.title')} <span className="gradient-text">{t('projects.titleHighlight')}</span>
           </h2>
           <p className="text-gray-400 text-lg">
-            Uma seleção dos meus trabalhos mais recentes e relevantes.
+            {t('projects.description')}
           </p>
         </div>
 
@@ -101,7 +115,7 @@ export default function Projects() {
                 {/* Featured Badge */}
                 <div className="absolute top-4 left-4">
                   <span className="px-3 py-1 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white text-xs font-medium rounded-full">
-                    Destaque
+                    {language === 'pt' ? 'Destaque' : 'Featured'}
                   </span>
                 </div>
 
