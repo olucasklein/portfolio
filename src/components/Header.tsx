@@ -53,9 +53,9 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/10 ${
           isScrolled || isMenuOpen
-            ? 'bg-[#0a0a0a]/90 backdrop-blur-lg border-b border-white/10'
+            ? 'bg-[#0a0a0a]/90 backdrop-blur-lg'
             : 'bg-transparent'
         }`}
       >
